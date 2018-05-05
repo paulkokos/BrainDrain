@@ -1,7 +1,11 @@
 package com.example.dd.braindrain;
 
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,9 +42,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //TODO:
+        LatLng serres = new LatLng(41.092083, 23.541016);
+        LatLng provatas = new LatLng(41.068238, 23.390686);
+        LatLng aKamila = new LatLng(41.058320, 23.424134);
+        LatLng kKamila = new LatLng(41.020431, 23.483293);
+        LatLng kMitrousi = new LatLng(41.058680, 23.457547);
+        LatLng koumaria = new LatLng(41.016434, 23.434656);
+        LatLng skoutari = new LatLng(41.020032, 23.520701);
+        LatLng adelfiko = new LatLng(41.014645, 23.457354);
+        LatLng agEleni = new LatLng(41.003545, 23.559196);
+        LatLng peponia = new LatLng(40.988154, 23.516756);
+
+        mMap.addMarker(new MarkerOptions().position(serres).title("Marker in Serres"));
+        mMap.addMarker(new MarkerOptions().position(provatas).title("Marker in provatas"));
+        mMap.addMarker(new MarkerOptions().position(aKamila).title("Marker in aKamila"));
+        mMap.addMarker(new MarkerOptions().position(kKamila).title("Marker in kKamila"));
+        mMap.addMarker(new MarkerOptions().position(kMitrousi).title("Marker in kMitrousi"));
+        mMap.addMarker(new MarkerOptions().position(koumaria).title("Marker in koumaria"));
+        mMap.addMarker(new MarkerOptions().position(skoutari).title("Marker in skoutari"));
+        mMap.addMarker(new MarkerOptions().position(adelfiko).title("Marker in adelfiko"));
+        mMap.addMarker(new MarkerOptions().position(agEleni).title("Marker in agEleni"));
+        mMap.addMarker(new MarkerOptions().position(peponia).title("Marker in peponia"));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kKamila, 11));
     }
+
+    //All Permissions i need for android 6.0 and above
+//    public void checkLocationPermission() {
+//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+//            }
+//        }
+//    }
 }
